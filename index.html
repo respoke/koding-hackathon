@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <title>Respoke + Koding + You = Worldwide Communication! by respoke</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="inner">
+        <h1>Respoke + Koding + You = Worldwide Communication!</h1>
+        <h2>Adding real-time communication to your apps with Respoke!</h2>
+        <a href="https://github.com/respoke/koding-hackathon" class="button"><small>View project on</small> GitHub</a>
+      </div>
+    </header>
+
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          <h1>
+<a id="respoke--koding--you--worldwide-communication" class="anchor" href="#respoke--koding--you--worldwide-communication" aria-hidden="true"><span class="octicon octicon-link"></span></a>Respoke + Koding + You = Worldwide Communication!</h1>
+
+<p>Welcome hackers worldwide! We're really excited at the opportunity to help all the teams of the 2014 <a href="https://koding.com/Hackathon">Koding hackathon</a> add real-time communications to their apps, something that we feel will truly keep things global and provide an amazing user experience!</p>
+
+<h2>
+<a id="what-is-respoke-and-how-can-it-help" class="anchor" href="#what-is-respoke-and-how-can-it-help" aria-hidden="true"><span class="octicon octicon-link"></span></a>What is Respoke and how can it help?</h2>
+
+<p><a href="http://respoke.io">Resoke</a> is a platform created to help developers easily add real-time communication features to their applications. You'll notice I used the word "feature", and this is an important distinction as we think that communication should be a native part of every application and website, and not a just a separate tool. </p>
+
+<h2>
+<a id="how-do-you-i-use-respoke-in-my-applications" class="anchor" href="#how-do-you-i-use-respoke-in-my-applications" aria-hidden="true"><span class="octicon octicon-link"></span></a>How do you I use Respoke in my applications?</h2>
+
+<p>We currently offer a Javascript library that allows you to easily implement things like real-time voice and video, as well as messaging and data functionality into your applications.</p>
+
+<h2>
+<a id="lets-see-some-examples" class="anchor" href="#lets-see-some-examples" aria-hidden="true"><span class="octicon octicon-link"></span></a>Let's see some examples!</h2>
+
+<p>Let's say you want to add <strong>messaging</strong> capability to your app (maybe for support purpose, maybe to allow your users to communication with each other). You can do this by connecting to Respoke and using the sendMessage method:</p>
+
+<div class="highlight highlight-javascript"><pre><span class="pl-c"><span class="pl-pdc">//</span> make an endpoint for that recipient</span>
+<span class="pl-s">var</span> endpoint <span class="pl-ko">=</span> client.getEndpoint({ id<span class="pl-ko">:</span> remote });
+
+<span class="pl-c"><span class="pl-pdc">//</span> grab the text to send</span>
+<span class="pl-s">var</span> messageText <span class="pl-ko">=</span> $(<span class="pl-s1"><span class="pl-pds">"</span>#textToSend<span class="pl-pds">"</span></span>).val();
+
+<span class="pl-c"><span class="pl-pdc">//</span> send it</span>
+endpoint.sendMessage({ message <span class="pl-ko">:</span> messageText });</pre></div>
+
+<p>How about making an <strong>Audio Call</strong>?</p>
+
+<div class="highlight highlight-javascript"><pre><span class="pl-c"><span class="pl-pdc">//</span> Call somebody</span>
+$(<span class="pl-s1"><span class="pl-pds">"</span>#makeCall<span class="pl-pds">"</span></span>).<span class="pl-sf">click</span>(<span class="pl-s">function</span> () {
+    <span class="pl-s">var</span> endpoint <span class="pl-ko">=</span> client.getEndpoint({ id<span class="pl-ko">:</span> $(<span class="pl-s1"><span class="pl-pds">"</span>#remoteId<span class="pl-pds">"</span></span>).val() });
+    call <span class="pl-ko">=</span> endpoint.startAudioCall();
+    call.listen(<span class="pl-s1"><span class="pl-pds">'</span>hangup<span class="pl-pds">'</span></span>, <span class="pl-s">function</span> () {
+        call <span class="pl-ko">=</span> <span class="pl-c1">null</span>;
+    });
+});
+
+<span class="pl-c"><span class="pl-pdc">//</span> Hang up on them</span>
+$(<span class="pl-s1"><span class="pl-pds">"</span>#endCall<span class="pl-pds">"</span></span>).<span class="pl-sf">click</span>(<span class="pl-s">function</span> () {
+    <span class="pl-k">if</span> (call) {
+        call.hangup();
+        call <span class="pl-ko">=</span> <span class="pl-c1">null</span>;
+    }
+});</pre></div>
+
+<h1>
+<a id="how-do-i-get-started" class="anchor" href="#how-do-i-get-started" aria-hidden="true"><span class="octicon octicon-link"></span></a>How do I get started?</h1>
+
+<p>First thing you'll need to do is create a Respoke account. To do this, click the following link: <a href="https://www.respoke.io/#join/tailored-houndstooth-jacket">https://www.respoke.io/#join</a> and enter your information in the signup form. After completing the form, you'll receive a confirmation email with a link to complete your registration.</p>
+
+<p>After you're all signed up, head over to our <a href="https://docs.respoke.io/">Quickstart Guide</a> for a fast run-down on getting started. You can also find lot's of useful information in our <a href="https://docs.respoke.io/">Docs</a>. </p>
+
+<h1>
+<a id="good-luck" class="anchor" href="#good-luck" aria-hidden="true"><span class="octicon octicon-link"></span></a>Good luck!</h1>
+
+<p>From the entire Respoke team, we want to wish you all the best of luck at the hackathon and can't wait to see what you build! </p>
+        </section>
+
+        <aside id="sidebar">
+          <a href="https://github.com/respoke/koding-hackathon/zipball/master" class="button">
+            <small>Download</small>
+            .zip file
+          </a>
+          <a href="https://github.com/respoke/koding-hackathon/tarball/master" class="button">
+            <small>Download</small>
+            .tar.gz file
+          </a>
+
+          <p class="repo-owner"><a href="https://github.com/respoke/koding-hackathon"></a> is maintained by <a href="https://github.com/respoke">respoke</a>.</p>
+
+          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
+        </aside>
+      </div>
+    </div>
+
+            <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-52260305-1");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+  </body>
+</html>
